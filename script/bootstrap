@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+"${SRCROOT}"/conanw --cw-check
+conan config install --type dir "${SRCROOT}/misc/conan_settings"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+MY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+"$MY_DIR"/bootstrap
+
+mkdir -p "$MY_DIR"/../build
+
+pushd "$MY_DIR"/../build || exit 1
+
+conan install ..

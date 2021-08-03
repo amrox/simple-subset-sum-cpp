@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+MY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+"$MY_DIR"/update
+
+pushd "$MY_DIR"/.. || exit 1
+
+cmake -S . -B build
+cmake --build build
+
+popd || exit 1
